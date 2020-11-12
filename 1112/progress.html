@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>progress test page</title>
+        <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+        <script>
+            var delta = 0;
+
+            $(function(){
+                $('div').click(function(){
+                    
+                    var timer = setInterval(function(){   
+                    if(delta<100){                
+                        $('progress').val($('progress').val()+(delta++));
+                        $('output').val(delta+'%');
+                    }
+                    if(delta==100){
+                        $('progress').val($('progress').val()+(delta--));
+                        $('output').val(delta+'%');   
+                    }
+                    if(delta<0){
+                        $('progress').val($('progress').val()+(delta++));
+                        $('output').val(delta+'%');   
+                    }
+                },10)
+            })
+        })
+            function stop (){
+                clearInterval(timer)
+        }
+        </script>
+    </head>
+    <body>
+        <div>click here!</div>
+        <div><a href="javascript:stop();"></a></div>
+            <label for="prog1">Progress task1</label>
+            <progress id="prog1" name="prog1" value="0" max="100"></progress>
+            <output>0%</output>
+    </body>
+</html>

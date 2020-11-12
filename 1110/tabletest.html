@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>table test page</title>
+        <style>
+            table {border: solid 1px black;text-align: center;}
+            tr:nth-child(odd) {background-color:thistle;}
+            tr:nth-child(odd) {background-color:yellowgreen;}
+        </style> 
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <script>
+                var standard = 'thistle';
+                function changecolor(){
+                    $('tr:nth-child(odd)').css('background-color',standard);
+                    if(standard == 'thistle'){
+                        $('tr:nth-child(odd)').css('background-color','yellowgreen');
+                    }else{
+                        $('tr:nth-child(even)').css('background-color','thistle');
+                    }
+                }
+            </script>            
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td><br></td><th>부서1</th><th>부서2</th><th>부서3</th>
+            </tr>
+            <tr>
+                <th>1분기</th><td>1</td><td>2</td><td>3</td>
+            </tr>
+            <tr>
+                <th>2분기</th><td>1</td><td>2</td><td>3</td>
+            </tr>
+            <tr>
+                <th>3분기</th><td>1</td><td>2</td><td>3</td>
+            </tr>
+        </table>
+        <button type="button" onclick="changecolor();">Click!</button>
+    </body>
+</html>
